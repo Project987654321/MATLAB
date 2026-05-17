@@ -1,0 +1,1041 @@
+<!--
+PUT YOUR IMAGES INSIDE:
+
+project folder
+│
+├── index.html
+│
+└── images
+      ├── banner.jpg
+      ├── rank.jpg
+      ├── eigen.jpg
+      ├── maclaurin.jpg
+      └── ode.jpg
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MATLAB Engineering Mathematics Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#2563eb;
+    --dark:#0f172a;
+    --success:#22c55e;
+    --danger:#ef4444;
+    --border:#e2e8f0;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    background:#f8fafc;
+    display:flex;
+    color:#1e293b;
+}
+
+/* SIDEBAR */
+
+aside{
+    width:280px;
+    height:100vh;
+    position:fixed;
+    overflow-y:auto;
+    background:#0f172a;
+    color:white;
+    padding:30px 20px;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:800;
+    margin-bottom:30px;
+}
+
+.logo span{
+    color:#3b82f6;
+}
+
+.dashboard{
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:16px;
+    margin-bottom:25px;
+}
+
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#334155;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+#progress{
+    width:0%;
+    height:100%;
+    background:var(--success);
+}
+
+aside a{
+    display:block;
+    text-decoration:none;
+    color:#cbd5e1;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:8px;
+    transition:0.3s;
+}
+
+aside a:hover{
+    background:rgba(255,255,255,0.08);
+}
+
+/* MAIN */
+
+main{
+    margin-left:280px;
+    width:calc(100% - 280px);
+    padding:40px;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    padding:50px;
+    border-radius:25px;
+}
+
+.hero-flex{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero img{
+    width:320px;
+    border-radius:20px;
+}
+
+/* SECTION */
+
+section{
+    background:white;
+    padding:35px;
+    border-radius:22px;
+    margin-top:40px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+h2{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.topic-image{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    border-radius:18px;
+    margin:20px 0;
+}
+
+/* CODE */
+
+.code{
+    background:#011627;
+    color:#d6deeb;
+    padding:25px;
+    border-radius:16px;
+    margin-top:20px;
+    font-family:'JetBrains Mono';
+    line-height:1.7;
+}
+
+.explanation{
+    background:#eff6ff;
+    padding:20px;
+    border-radius:14px;
+    margin-top:20px;
+}
+
+/* TRY */
+
+.lab{
+    border:2px dashed var(--border);
+    padding:25px;
+    border-radius:18px;
+    margin-top:25px;
+}
+
+.problem{
+    background:#eff6ff;
+    padding:15px;
+    border-left:5px solid var(--primary);
+    border-radius:10px;
+    margin-top:15px;
+}
+
+textarea{
+    width:100%;
+    height:140px;
+    background:#0f172a;
+    color:#10b981;
+    border:none;
+    border-radius:14px;
+    padding:15px;
+    margin-top:20px;
+    font-family:'JetBrains Mono';
+}
+
+.console{
+    display:none;
+    margin-top:15px;
+    background:black;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+}
+
+.solution{
+    display:none;
+    margin-top:15px;
+    background:#f8fafc;
+    border-left:5px solid var(--primary);
+    padding:15px;
+    border-radius:12px;
+    font-family:'JetBrains Mono';
+}
+
+/* BUTTON */
+
+.btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:10px;
+    margin-top:18px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+/* QUIZ */
+
+.quiz-card{
+    border:1px solid var(--border);
+    padding:20px;
+    border-radius:16px;
+    margin-top:20px;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:15px;
+}
+
+.option{
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option:hover{
+    background:#dbeafe;
+}
+
+.correct{
+    background:#dcfce7 !important;
+    border-color:#22c55e !important;
+}
+
+.wrong{
+    background:#fee2e2 !important;
+    border-color:#ef4444 !important;
+}
+
+.feedback{
+    display:none;
+    margin-top:15px;
+    background:#f8fafc;
+    padding:15px;
+    border-radius:12px;
+    border-left:5px solid var(--primary);
+}
+
+footer{
+    text-align:center;
+    padding:50px;
+    color:#64748b;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+body{
+    flex-direction:column;
+}
+
+aside{
+    position:relative;
+    width:100%;
+    height:auto;
+}
+
+main{
+    margin-left:0;
+    width:100%;
+}
+
+.hero-flex{
+    flex-direction:column;
+}
+
+.options{
+    grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<aside>
+
+<div class="logo">
+MATLAB<span>.Hub</span>
+</div>
+
+<div class="dashboard">
+
+<h3>Student Dashboard</h3>
+
+<div class="progress-bar">
+<div id="progress"></div>
+</div>
+
+<p style="margin-top:10px;">
+Score:
+<span id="score">0</span> / 40
+</p>
+
+</div>
+
+<a href="#home">Introduction</a>
+<a href="#rank">Matrix Rank</a>
+<a href="#eigen">Eigen Values</a>
+<a href="#maclaurin">Maclaurin Series</a>
+<a href="#ode">ODE Exactness</a>
+
+</aside>
+
+<!-- MAIN -->
+
+<main>
+
+<section class="hero" id="home">
+
+<div class="hero-flex">
+
+<div>
+
+<h1>
+Advanced Engineering Mathematics
+</h1>
+
+<p>
+Master MATLAB programming with coding practice,
+MCQs, simulations, and engineering mathematics.
+</p>
+
+<button class="btn">
+Start Learning
+</button>
+
+</div>
+
+<img src="images/banner.jpg">
+
+</div>
+
+</section>
+
+<div id="modules"></div>
+
+<footer>
+© 2026 MATLAB Engineering Learning Hub
+</footer>
+
+</main>
+
+<script>
+
+let score = 0;
+
+const modules = [
+
+{
+id:"rank",
+title:"Module 01 : Matrix Rank",
+image:"images/rank.jpg",
+description:"Matrix rank determines independent rows and columns.",
+
+problem:"Write MATLAB code to calculate rank of matrix A = [1 0 0; 0 1 0; 1 1 0].",
+
+code:`A = [1 2 1;
+2 4 2;
+0 1 5];
+
+r = rank(A)
+
+disp(r)`,
+
+answer:`A = [1 0 0;
+0 1 0;
+1 1 0];
+
+rank(A)`,
+
+mcqs:[
+
+{
+q:"Command used for matrix rank?",
+o:["rank()","eig()","diff()","plot()"],
+c:0,
+e:"rank() calculates matrix rank."
+},
+
+{
+q:"Rank of identity matrix?",
+o:["0","1","4","2"],
+c:2,
+e:"All rows are independent."
+},
+
+{
+q:"Maximum rank of 3x3 matrix?",
+o:["1","2","3","4"],
+c:2,
+e:"Maximum rank equals minimum dimension."
+},
+
+{
+q:"Rank of zero matrix?",
+o:["0","1","2","Undefined"],
+c:0,
+e:"Zero matrix has no independent rows."
+},
+
+{
+q:"Dependent rows make rank?",
+o:["Increase","Decrease","Infinite","Negative"],
+c:1,
+e:"Dependent rows reduce rank."
+},
+
+{
+q:"Rank helps determine?",
+o:["Color","Consistency","Area","Speed"],
+c:1,
+e:"Rank checks equation consistency."
+},
+
+{
+q:"rank(A)==rows means?",
+o:["Singular","Full row rank","Zero matrix","Identity"],
+c:1,
+e:"All rows are independent."
+},
+
+{
+q:"Identical rows make rank?",
+o:["Full","Reduced","Infinite","Negative"],
+c:1,
+e:"Identical rows are dependent."
+},
+
+{
+q:"Command to display output?",
+o:["disp()","show()","print()","view()"],
+c:0,
+e:"disp() displays output."
+},
+
+{
+q:"Rank of [1 2;1 2]?",
+o:["0","1","2","4"],
+c:1,
+e:"Rows are dependent."
+}
+
+]
+
+},
+
+{
+id:"eigen",
+title:"Module 02 : Eigen Values & Vectors",
+image:"images/eigen.jpg",
+description:"Eigenvalues are used in vibration and stability analysis.",
+
+problem:"Write MATLAB code to calculate eigenvalues of matrix B=[6 0;0 2].",
+
+code:`A = [4 -1;
+2 1];
+
+[V,D] = eig(A)
+
+disp(diag(D))`,
+
+answer:`B = [6 0;
+0 2];
+
+eig(B)`,
+
+mcqs:[
+
+{
+q:"Function for eigenvalues?",
+o:["rank()","eig()","diff()","trace()"],
+c:1,
+e:"eig() computes eigenvalues."
+},
+
+{
+q:"Eigenvalues exist for?",
+o:["Rectangular","Square","Vectors","Scalars"],
+c:1,
+e:"Only square matrices have eigenvalues."
+},
+
+{
+q:"Diagonal matrix eigenvalues?",
+o:["Diagonal entries","Rank","Trace","Determinant"],
+c:0,
+e:"Diagonal entries are eigenvalues."
+},
+
+{
+q:"Product of eigenvalues equals?",
+o:["Trace","Rank","Determinant","Sum"],
+c:2,
+e:"Determinant equals product of eigenvalues."
+},
+
+{
+q:"Sum of eigenvalues equals?",
+o:["Trace","Determinant","Rank","Product"],
+c:0,
+e:"Trace equals sum of eigenvalues."
+},
+
+{
+q:"eig(A) returns?",
+o:["Rank","Eigenvalues","Derivative","Plot"],
+c:1,
+e:"eig() computes eigenvalues."
+},
+
+{
+q:"Eigenvectors stored in?",
+o:["D","V","A","R"],
+c:1,
+e:"V stores eigenvectors."
+},
+
+{
+q:"Characteristic equation?",
+o:["det(A-λI)=0","A+B","rank(A)","trace(A)"],
+c:0,
+e:"Used to find eigenvalues."
+},
+
+{
+q:"If λ=0 matrix is?",
+o:["Identity","Singular","Diagonal","Symmetric"],
+c:1,
+e:"Determinant becomes zero."
+},
+
+{
+q:"Eigen analysis requires?",
+o:["Square matrix","Vector","Scalar","Tensor"],
+c:0,
+e:"Only square matrices."
+}
+
+]
+
+},
+
+{
+id:"maclaurin",
+title:"Module 03 : Maclaurin Series",
+image:"images/maclaurin.jpg",
+description:"Maclaurin series approximates functions around x=0.",
+
+problem:"Write MATLAB code for Maclaurin series of sin(x).",
+
+code:`syms x
+
+f = cos(x)
+
+T = taylor(f,x,0)
+
+pretty(T)`,
+
+answer:`syms x
+
+taylor(sin(x))`,
+
+mcqs:[
+
+{
+q:"Maclaurin centered at?",
+o:["x=1","x=0","x=2","x=-1"],
+c:1,
+e:"Maclaurin is centered at x=0."
+},
+
+{
+q:"Function for expansion?",
+o:["expand()","plot()","rank()","taylor()"],
+c:3,
+e:"taylor() performs expansion."
+},
+
+{
+q:"Maclaurin is special case of?",
+o:["Taylor","Fourier","Laplace","ODE"],
+c:0,
+e:"Maclaurin is Taylor at x=0."
+},
+
+{
+q:"cos(x) first term?",
+o:["0","1","x","x²"],
+c:1,
+e:"cos(0)=1."
+},
+
+{
+q:"sin(x) is?",
+o:["Even","Odd","Constant","Linear"],
+c:1,
+e:"sin(x) is odd."
+},
+
+{
+q:"cos(x) is?",
+o:["Odd","Even","Linear","Constant"],
+c:1,
+e:"cos(x) is even."
+},
+
+{
+q:"Taylor command?",
+o:["taylor()","expand()","solve()","rank()"],
+c:0,
+e:"taylor() performs expansion."
+},
+
+{
+q:"Symbolic variable command?",
+o:["syms","vars","symbol","symb"],
+c:0,
+e:"syms creates symbolic variables."
+},
+
+{
+q:"pretty() does?",
+o:["Plot","Formats output","Roots","Variables"],
+c:1,
+e:"pretty() formats symbolic output."
+},
+
+{
+q:"exp(x) starts with?",
+o:["x","1+x","x²","0"],
+c:1,
+e:"Series starts with 1+x."
+}
+
+]
+
+},
+
+{
+id:"ode",
+title:"Module 04 : ODE Exactness",
+image:"images/ode.jpg",
+description:"Checks whether differential equations are exact.",
+
+problem:"Write MATLAB code to check exactness for M=y and N=x.",
+
+code:`syms x y
+
+M = 2*x + y;
+N = x + 3*y^2;
+
+My = diff(M,y)
+Nx = diff(N,x)
+
+isequal(My,Nx)`,
+
+answer:`syms x y
+
+M = y;
+N = x;
+
+isequal(diff(M,y),diff(N,x))`,
+
+mcqs:[
+
+{
+q:"Exactness condition?",
+o:["Mx=Ny","My=Nx","M=N","Mx=Nx"],
+c:1,
+e:"Exactness requires My=Nx."
+},
+
+{
+q:"diff(x*y,y)?",
+o:["x","y","0","x+y"],
+c:0,
+e:"x is constant w.r.t y."
+},
+
+{
+q:"diff(x²,y)?",
+o:["2x","0","y","1"],
+c:1,
+e:"x² constant w.r.t y."
+},
+
+{
+q:"isequal() returns?",
+o:["String","Boolean","Float","Array"],
+c:1,
+e:"Checks logical equality."
+},
+
+{
+q:"Exact equations are of order?",
+o:["1st","2nd","3rd","4th"],
+c:0,
+e:"Exactness applies to first order."
+},
+
+{
+q:"If My ≠ Nx equation is?",
+o:["Exact","Non Exact","Linear","Quadratic"],
+c:1,
+e:"Condition fails."
+},
+
+{
+q:"diff(sin(y),y)?",
+o:["sin(y)","cos(y)","0","1"],
+c:1,
+e:"Derivative is cos(y)."
+},
+
+{
+q:"Mdx + Ndy = ?",
+o:["1","0","∞","Undefined"],
+c:1,
+e:"Standard exact equation form."
+},
+
+{
+q:"Integrating factor helps?",
+o:["Rank","Exactness","Eigenvalues","Plot"],
+c:1,
+e:"Makes equation exact."
+},
+
+{
+q:"Partial derivative command?",
+o:["derive()","diff()","partial()","pd()"],
+c:1,
+e:"diff() calculates derivatives."
+}
+
+]
+
+}
+
+];
+
+function updateProgress(){
+
+document.getElementById("score").innerText = score;
+
+let percent = (score/40)*100;
+
+document.getElementById("progress").style.width =
+percent + "%";
+
+}
+
+function checkAnswer(btn,selected,correct,module,index,correctText,explanation){
+
+let grid =
+document.getElementById(`grid-${module}-${index}`);
+
+if(grid.classList.contains("done")) return;
+
+grid.classList.add("done");
+
+let buttons = grid.querySelectorAll(".option");
+
+buttons.forEach((b,i)=>{
+
+if(i===correct){
+b.classList.add("correct");
+}
+
+if(i===selected && selected!==correct){
+b.classList.add("wrong");
+}
+
+});
+
+let feedback =
+document.getElementById(`feed-${module}-${index}`);
+
+feedback.style.display = "block";
+
+if(selected===correct){
+
+score++;
+updateProgress();
+
+feedback.innerHTML = `
+<b style="color:green;">✔ Correct Answer</b>
+<br><br>
+${explanation}
+`;
+
+}
+else{
+
+feedback.innerHTML = `
+<b style="color:red;">✘ Wrong Answer</b>
+<br><br>
+Correct Answer:
+<b>${correctText}</b>
+<br><br>
+${explanation}
+`;
+
+}
+
+}
+
+function checkCode(id){
+
+let userCode =
+document.getElementById(`input-${id}`)
+.value
+.trim()
+.toLowerCase()
+.replace(/\s/g,'');
+
+let module =
+modules.find(m=>m.id===id);
+
+let correct =
+module.answer
+.toLowerCase()
+.replace(/\s/g,'');
+
+let consoleBox =
+document.getElementById(`console-${id}`);
+
+let solutionBox =
+document.getElementById(`solution-${id}`);
+
+consoleBox.style.display = "block";
+solutionBox.style.display = "block";
+
+if(userCode===correct){
+
+consoleBox.innerHTML =
+`<span style="color:#22c55e;">✔ Correct MATLAB Solution</span>`;
+
+}
+else{
+
+consoleBox.innerHTML =
+`<span style="color:#ef4444;">✘ Incorrect Solution</span>`;
+
+}
+
+solutionBox.innerHTML =
+`<b>Correct MATLAB Code:</b><br><br>${module.answer}`;
+
+}
+
+function createModules(){
+
+let container =
+document.getElementById("modules");
+
+modules.forEach(mod=>{
+
+let section =
+document.createElement("section");
+
+section.id = mod.id;
+
+section.innerHTML = `
+
+<h2>${mod.title}</h2>
+
+<img src="${mod.image}" class="topic-image">
+
+<p>${mod.description}</p>
+
+<div class="code">
+${mod.code.replace(/\n/g,"<br>")}
+</div>
+
+<div class="explanation">
+
+<h3>Code Explanation</h3>
+
+<ul style="padding-left:20px; line-height:2; margin-top:10px;">
+
+<li>Defines MATLAB variables</li>
+<li>Uses built-in MATLAB functions</li>
+<li>Performs engineering calculations</li>
+<li>Displays computational output</li>
+
+</ul>
+
+</div>
+
+<div class="lab">
+
+<h3>Try It Yourself</h3>
+
+<div class="problem">
+
+<b>Problem Statement:</b>
+
+<p style="margin-top:10px;">
+${mod.problem}
+</p>
+
+</div>
+
+<textarea
+id="input-${mod.id}"
+placeholder="Write MATLAB code here...">
+</textarea>
+
+<button class="btn"
+onclick="checkCode('${mod.id}')">
+Check Solution
+</button>
+
+<div class="console"
+id="console-${mod.id}">
+</div>
+
+<div class="solution"
+id="solution-${mod.id}">
+</div>
+
+</div>
+
+<div style="margin-top:40px;">
+
+<h3>Topic Mastery Quiz</h3>
+
+${mod.mcqs.map((q,i)=>`
+
+<div class="quiz-card">
+
+<b>Q${i+1}. ${q.q}</b>
+
+<div class="options"
+id="grid-${mod.id}-${i}">
+
+${q.o.map((opt,oi)=>`
+
+<button class="option"
+onclick="checkAnswer(
+this,
+${oi},
+${q.c},
+'${mod.id}',
+${i},
+'${q.o[q.c]}',
+'${q.e}'
+)">
+${opt}
+</button>
+
+`).join("")}
+
+</div>
+
+<div class="feedback"
+id="feed-${mod.id}-${i}">
+</div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+`;
+
+container.appendChild(section);
+
+});
+
+}
+
+createModules();
+
+</script>
+
+</body>
+</html>
