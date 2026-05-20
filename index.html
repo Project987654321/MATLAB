@@ -1,21 +1,8 @@
-<!--
-PUT ALL FILES IN SAME FOLDER
-
-Project Folder
-│
-├── index.html
-├── banner.jpg
-├── rank.png
-├── eigen.png
-├── macklaurin.png
-└── ode.png
--->
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -167,7 +154,7 @@ main{
 /* SECTIONS */
 
 section{
-    background:rgba(255,255,255,0.85);
+    background:rgba(255,255,255,0.9);
     backdrop-filter:blur(10px);
     padding:40px;
     border-radius:24px;
@@ -202,6 +189,7 @@ h2{
     font-family:'JetBrains Mono',monospace;
     line-height:1.7;
     border-left:5px solid var(--primary);
+    overflow-x:auto;
 }
 
 .explanation{
@@ -326,18 +314,43 @@ textarea{
 
 /* CERTIFICATE */
 
-.certificate{
+.certificate-box{
     text-align:center;
-    background:linear-gradient(to right,#eff6ff,#ffffff);
-    border:2px solid #bfdbfe;
+    background:linear-gradient(135deg,#eff6ff,#dbeafe);
 }
 
-.certificate-box{
+input{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #cbd5e1;
+    margin-top:15px;
+    font-size:1rem;
+}
+
+#certificate{
+    display:none;
     margin-top:30px;
     padding:40px;
-    border:4px double var(--primary);
-    border-radius:20px;
+    border:8px solid #2563eb;
+    border-radius:25px;
     background:white;
+    text-align:center;
+}
+
+#certificate h1{
+    font-size:3rem;
+    color:#1d4ed8;
+}
+
+#certificate h2{
+    margin-top:20px;
+    color:#0f172a;
+}
+
+#certificate p{
+    margin-top:15px;
+    font-size:1.1rem;
 }
 
 /* FOOTER */
@@ -379,12 +392,9 @@ main{
 }
 
 </style>
-
 </head>
 
 <body>
-
-<!-- SIDEBAR -->
 
 <aside>
 
@@ -409,22 +419,18 @@ Score:
 
 <div class="nav-title">Navigation</div>
 
-<a href="#home">Introduction</a>
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
 <a href="#rank">Matrix Rank</a>
 <a href="#eigen">Eigen Values</a>
 <a href="#maclaurin">Maclaurin Series</a>
 <a href="#ode">ODE Exactness</a>
-<a href="#documentation">Official Documentation</a>
-<a href="#certificate">Certificate</a>
-<a href="#about">About Us</a>
+<a href="#docs">Official Documentation</a>
+<a href="#certificate-section">Certificate</a>
 
 </aside>
 
-<!-- MAIN -->
-
 <main>
-
-<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -455,146 +461,127 @@ Start Learning
 
 </section>
 
-<!-- MODULES -->
-
-<div id="modules"></div>
-
-<!-- DOCUMENTATION -->
-
-<section id="documentation">
-
-<h2>Official MATLAB Documentation</h2>
-
-<ul style="margin-top:20px; line-height:2.2; padding-left:20px;">
-
-<li>
-<a href="https://www.mathworks.com/help/matlab/" target="_blank">
-MATLAB Official Documentation
-</a>
-</li>
-
-<li>
-<a href="https://www.mathworks.com/help/matlab/ref/rank.html" target="_blank">
-Matrix Rank Documentation
-</a>
-</li>
-
-<li>
-<a href="https://www.mathworks.com/help/matlab/ref/eig.html" target="_blank">
-Eigen Value Documentation
-</a>
-</li>
-
-<li>
-<a href="https://www.mathworks.com/help/symbolic/taylor.html" target="_blank">
-Maclaurin Series Documentation
-</a>
-</li>
-
-<li>
-<a href="https://www.mathworks.com/help/symbolic/diff.html" target="_blank">
-ODE & Differentiation Documentation
-</a>
-</li>
-
-</ul>
-
-</section>
-
-<!-- CERTIFICATE -->
-
-<section class="certificate" id="certificate">
-
-<h2>Course Completion Certificate</h2>
-
-<p style="margin-top:15px; line-height:1.8;">
-Complete all quizzes and coding practice to earn your certificate.
-</p>
-
-<div class="certificate-box">
-
-<h3>Certificate of Achievement</h3>
-
-<p style="font-size:1.2rem; margin-top:20px;">
-This certifies that
-</p>
-
-<input
-type="text"
-id="student-name"
-placeholder="Enter Your Full Name"
-style="
-margin-top:20px;
-padding:14px;
-width:60%;
-border-radius:12px;
-border:2px solid #2563eb;
-font-size:1rem;
-text-align:center;
-font-weight:700;
-"
-oninput="updateCertificateName()"
-/>
-
-<h1
-id="certificate-name"
-style="margin-top:25px; color:var(--primary);">
-STUDENT NAME
-</h1>
-
-<p style="margin-top:20px; font-size:1.1rem;">
-has successfully completed the
-</p>
-
-<h2 style="margin-top:15px;">
-MATLAB Engineering Mathematics Program
-</h2>
-
-<p style="margin-top:25px;">
-Issued on: 2026
-</p>
-
-<div
-id="completion-message"
-style="
-margin-top:20px;
-font-weight:700;
-color:#ef4444;
-">
-⚠ Complete 100% course progress to unlock certificate
-</div>
-
-<button
-class="btn"
-id="certificate-btn"
-onclick="downloadCertificate()"
-disabled
-style="
-opacity:0.5;
-cursor:not-allowed;
-">
-Download Certificate
-</button>
-
-</div>
-
-</section>
-
 <!-- ABOUT -->
 
 <section id="about">
 
 <h2>About Us</h2>
 
-<p style="margin-top:20px; line-height:2;">
-
-MATLAB Engineering Mathematics Hub is an educational platform
-developed for engineering students to practice MATLAB programming,
-learn advanced mathematics,
-solve coding problems,
-and prepare for university examinations.
-
+<p style="line-height:2; margin-top:20px;">
+MATLAB Engineering Mathematics Hub is an educational learning platform
+designed for engineering students to master MATLAB programming through
+interactive coding exercises, engineering mathematics concepts,
+MCQ quizzes, and hands-on practice.
 </p>
+
+<p style="line-height:2; margin-top:15px;">
+This website helps students learn topics like Matrix Rank,
+Eigen Values, Maclaurin Series, and Differential Equations
+with practical MATLAB implementation.
+</p>
+
+</section>
+
+<div id="modules"></div>
+
+<!-- DOCUMENTATION -->
+
+<section id="docs">
+
+<h2>Official Documentation</h2>
+
+<div class="quiz-card">
+
+<h3>MATLAB Official Resources</h3>
+
+<ul style="margin-top:20px; line-height:2;">
+
+<li>
+<a href="https://www.mathworks.com/help/matlab/"
+target="_blank">
+MATLAB Documentation
+</a>
+</li>
+
+<li>
+<a href="https://www.mathworks.com/help/symbolic/"
+target="_blank">
+Symbolic Math Toolbox
+</a>
+</li>
+
+<li>
+<a href="https://www.mathworks.com/help/matlab/ref/rank.html"
+target="_blank">
+rank() Function
+</a>
+</li>
+
+<li>
+<a href="https://www.mathworks.com/help/matlab/ref/eig.html"
+target="_blank">
+eig() Function
+</a>
+</li>
+
+<li>
+<a href="https://www.mathworks.com/help/symbolic/taylor.html"
+target="_blank">
+taylor() Function
+</a>
+</li>
+
+<li>
+<a href="https://www.mathworks.com/help/symbolic/diff.html"
+target="_blank">
+diff() Function
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- CERTIFICATE -->
+
+<section id="certificate-section" class="certificate-box">
+
+<h2>Course Completion Certificate</h2>
+
+<p style="margin-top:15px;">
+Complete all 40 MCQs correctly to unlock your certificate.
+</p>
+
+<input
+type="text"
+id="studentName"
+placeholder="Enter Your Full Name">
+
+<button class="btn" onclick="generateCertificate()">
+Generate Certificate
+</button>
+
+<div id="certificate">
+
+<h1>CERTIFICATE</h1>
+
+<h2>OF COMPLETION</h2>
+
+<p>This certificate is proudly awarded to</p>
+
+<h2 id="certName"></h2>
+
+<p>
+for successfully completing the
+MATLAB Engineering Mathematics Course
+with 100% progress.
+</p>
+
+<p id="certDate"></p>
+
+</div>
 
 </section>
 
@@ -603,8 +590,6 @@ and prepare for university examinations.
 </footer>
 
 </main>
-
-<!-- SCRIPT -->
 
 <script>
 
@@ -645,6 +630,332 @@ q:"Command used for matrix rank?",
 o:["rank()","eig()","diff()","plot()"],
 c:0,
 e:"rank() is used to calculate matrix rank."
+},
+{
+q:"Rank of identity matrix?",
+o:["0","1","4","2"],
+c:2,
+e:"All rows are independent."
+},
+{
+q:"Maximum rank of 3x3 matrix?",
+o:["1","2","3","4"],
+c:2,
+e:"Maximum rank equals minimum dimension."
+},
+{
+q:"Rank of zero matrix?",
+o:["0","1","2","Undefined"],
+c:0,
+e:"Zero matrix has no independent rows."
+},
+{
+q:"Dependent rows make rank?",
+o:["Increase","Decrease","Infinite","Negative"],
+c:1,
+e:"Dependent rows reduce rank."
+},
+{
+q:"Rank helps determine?",
+o:["Color","Consistency","Area","Speed"],
+c:1,
+e:"Rank checks equation consistency."
+},
+{
+q:"rank(A)==rows means?",
+o:["Singular","Full row rank","Zero matrix","Identity"],
+c:1,
+e:"All rows are independent."
+},
+{
+q:"Identical rows make rank?",
+o:["Full","Reduced","Infinite","Negative"],
+c:1,
+e:"Identical rows are dependent."
+},
+{
+q:"Command to display output?",
+o:["disp()","show()","print()","view()"],
+c:0,
+e:"disp() displays output."
+},
+{
+q:"Rank of [1 2;1 2]?",
+o:["0","1","2","4"],
+c:1,
+e:"Rows are dependent."
+}
+]
+},
+
+{
+id:"eigen",
+
+title:"Module 02 : Eigen Values & Vectors",
+
+image:"eigen.png",
+
+description:
+"Eigenvalues are used in vibration and stability analysis.",
+
+problem:
+"Write a MATLAB program to calculate eigenvalues of matrix B = [6 0; 0 2].",
+
+code:`A = [4 -1;
+2 1];
+
+[V,D] = eig(A)
+
+disp(diag(D))`,
+
+answer:`B = [6 0;
+0 2];
+
+eig(B)`,
+
+mcqs:[
+{
+q:"Function for eigenvalues?",
+o:["rank()","eig()","diff()","trace()"],
+c:1,
+e:"eig() computes eigenvalues."
+},
+{
+q:"Eigenvalues exist for?",
+o:["Rectangular","Square","Vectors","Scalars"],
+c:1,
+e:"Only square matrices have eigenvalues."
+},
+{
+q:"Diagonal matrix eigenvalues?",
+o:["Diagonal entries","Rank","Trace","Determinant"],
+c:0,
+e:"Diagonal entries are eigenvalues."
+},
+{
+q:"Product of eigenvalues equals?",
+o:["Trace","Rank","Determinant","Sum"],
+c:2,
+e:"Determinant equals product."
+},
+{
+q:"Sum of eigenvalues equals?",
+o:["Trace","Determinant","Rank","Product"],
+c:0,
+e:"Trace equals sum."
+},
+{
+q:"Eigenvectors stored in?",
+o:["D","V","A","R"],
+c:1,
+e:"V stores eigenvectors."
+},
+{
+q:"Characteristic equation?",
+o:["det(A-λI)=0","A+B","rank(A)","trace(A)"],
+c:0,
+e:"Used to find eigenvalues."
+},
+{
+q:"If λ=0 matrix is?",
+o:["Identity","Singular","Diagonal","Symmetric"],
+c:1,
+e:"Determinant becomes zero."
+},
+{
+q:"eig(A) returns?",
+o:["Rank","Eigenvalues","Derivative","Plot"],
+c:1,
+e:"eig() computes eigenvalues."
+},
+{
+q:"Eigen analysis requires?",
+o:["Square matrix","Vector","Scalar","Tensor"],
+c:0,
+e:"Only square matrices."
+}
+]
+},
+
+{
+id:"maclaurin",
+
+title:"Module 03 : Maclaurin Series",
+
+image:"macklaurin.png",
+
+description:
+"Maclaurin series approximates functions around x = 0.",
+
+problem:
+"Write MATLAB code to generate Maclaurin series of sin(x).",
+
+code:`syms x
+
+f = cos(x)
+
+T = taylor(f,x,0)
+
+pretty(T)`,
+
+answer:`syms x
+
+taylor(sin(x))`,
+
+mcqs:[
+{
+q:"Maclaurin centered at?",
+o:["x=1","x=0","x=2","x=-1"],
+c:1,
+e:"Maclaurin is centered at x=0."
+},
+{
+q:"Function for expansion?",
+o:["expand()","plot()","rank()","taylor()"],
+c:3,
+e:"taylor() performs expansion."
+},
+{
+q:"Maclaurin is special case of?",
+o:["Taylor","Fourier","Laplace","ODE"],
+c:0,
+e:"Maclaurin is Taylor at x=0."
+},
+{
+q:"cos(x) first term?",
+o:["0","1","x","x²"],
+c:1,
+e:"cos(0)=1."
+},
+{
+q:"sin(x) is?",
+o:["Even","Odd","Constant","Linear"],
+c:1,
+e:"sin(x) is odd."
+},
+{
+q:"cos(x) is?",
+o:["Odd","Even","Linear","Constant"],
+c:1,
+e:"cos(x) is even."
+},
+{
+q:"Taylor command?",
+o:["taylor()","expand()","solve()","rank()"],
+c:0,
+e:"taylor() performs expansion."
+},
+{
+q:"Symbolic variable command?",
+o:["syms","vars","symbol","symb"],
+c:0,
+e:"syms creates symbolic variables."
+},
+{
+q:"pretty() does?",
+o:["Plot","Formats output","Roots","Variables"],
+c:1,
+e:"pretty() formats symbolic output."
+},
+{
+q:"exp(x) starts with?",
+o:["x","1+x","x²","0"],
+c:1,
+e:"Series starts with 1+x."
+}
+]
+},
+
+{
+id:"ode",
+
+title:"Module 04 : ODE Exactness",
+
+image:"ode.png",
+
+description:
+"Checks whether differential equations are exact.",
+
+problem:
+"Write MATLAB code to check exactness for M = y and N = x.",
+
+code:`syms x y
+
+M = 2*x + y;
+N = x + 3*y^2;
+
+My = diff(M,y)
+Nx = diff(N,x)
+
+isequal(My,Nx)`,
+
+answer:`syms x y
+
+M = y;
+N = x;
+
+isequal(diff(M,y),diff(N,x))`,
+
+mcqs:[
+{
+q:"Exactness condition?",
+o:["Mx=Ny","My=Nx","M=N","Mx=Nx"],
+c:1,
+e:"Exactness requires My=Nx."
+},
+{
+q:"diff(x*y,y)?",
+o:["x","y","0","x+y"],
+c:0,
+e:"x is constant w.r.t y."
+},
+{
+q:"diff(x²,y)?",
+o:["2x","0","y","1"],
+c:1,
+e:"x² constant w.r.t y."
+},
+{
+q:"isequal() returns?",
+o:["String","Boolean","Float","Array"],
+c:1,
+e:"Checks logical equality."
+},
+{
+q:"Exact equations are of order?",
+o:["1st","2nd","3rd","4th"],
+c:0,
+e:"Exactness applies to first order."
+},
+{
+q:"If My ≠ Nx equation is?",
+o:["Exact","Non Exact","Linear","Quadratic"],
+c:1,
+e:"Condition fails."
+},
+{
+q:"diff(sin(y),y)?",
+o:["sin(y)","cos(y)","0","1"],
+c:1,
+e:"Derivative is cos(y)."
+},
+{
+q:"Mdx + Ndy = ?",
+o:["1","0","∞","Undefined"],
+c:1,
+e:"Standard exact equation form."
+},
+{
+q:"Integrating factor helps?",
+o:["Rank","Exactness","Eigenvalues","Plot"],
+c:1,
+e:"Makes equation exact."
+},
+{
+q:"Partial derivative command?",
+o:["derive()","diff()","partial()","pd()"],
+c:1,
+e:"diff() calculates derivatives."
 }
 ]
 }
@@ -655,28 +966,10 @@ function updateProgress(){
 
 document.getElementById("score").innerText = score;
 
-let totalQuestions = 1;
-
-let percent = (score / totalQuestions) * 100;
+let percent = (score / 40) * 100;
 
 document.getElementById("progress").style.width =
 percent + "%";
-
-if(percent >= 100){
-
-document.getElementById("certificate-btn").disabled = false;
-
-document.getElementById("certificate-btn").style.opacity = "1";
-
-document.getElementById("certificate-btn").style.cursor = "pointer";
-
-document.getElementById("completion-message").innerHTML =
-"✔ Congratulations! Certificate Unlocked";
-
-document.getElementById("completion-message").style.color =
-"#22c55e";
-
-}
 
 }
 
@@ -781,40 +1074,27 @@ solutionBox.innerHTML =
 
 }
 
-function updateCertificateName(){
+function generateCertificate(){
 
 let name =
-document.getElementById("student-name").value;
+document.getElementById("studentName").value;
 
-if(name.trim() === ""){
-
-document.getElementById("certificate-name").innerText =
-"STUDENT NAME";
-
-}
-else{
-
-document.getElementById("certificate-name").innerText =
-name;
-
-}
-
-}
-
-function downloadCertificate(){
-
-let name =
-document.getElementById("student-name").value;
-
-if(name.trim() === ""){
-
+if(name.trim()===""){
 alert("Please enter your name");
-
 return;
-
 }
 
-window.print();
+if(score < 40){
+alert("Complete all MCQs correctly to unlock certificate");
+return;
+}
+
+document.getElementById("certificate").style.display = "block";
+
+document.getElementById("certName").innerText = name;
+
+document.getElementById("certDate").innerText =
+"Date : " + new Date().toLocaleDateString();
 
 }
 
